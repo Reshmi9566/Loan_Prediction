@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Status Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            margin-bottom: 150px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #ccc;
+            padding: 20px;
+            background: #fff;
+            z-index: 1000;
+            width: 60%;
+            max-width: 600px;
+            border-radius: 15px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .form-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .form-section div {
+            width: 48%;
+        }
+
+        
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body background="../static/img.jpg">
+    <header class="header">
+        <div class="container">
+            <h1>Welcome to LoanPredict</h1>
+            <p>Accurate Loan Status Predictions at Your Fingertips</p>
+        </div>
+    </header>
+    <h2>Join Thousands of Satisfied Users</h2>
+    <button onclick="openPopup()">Get Started</button><br><br><br>
+    <br><br><br><br><br><br><br><br>
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <h2>Enter Details</h2>
+        <form id="predictionForm" action="/predict" method="post">
+            <div class="form-section">
+                <div>
+                    <label>Gender</label><br>
+                    <input type="text" name="gender"><br>
+                    <label>Married</label><br>
+                    <input type="text" name="married"><br>
+                    <label>Dependents</label><br>
+                    <input type="number" name="dependents"><br>
+                    <label>Education</label><br>
+                    <input type="text" name="education"><br>
+                    <label>Self Employed</label><br>
+                    <input type="text" name="selfemployed"><br>
+                </div>
+    
+                <div>
+                    <label>Applicant Income</label><br>
+                    <input type="text" name="applincome"><br>
+                    <label>Coapplicant Income</label><br>
+                    <input type="text" name="coapplincome"><br>
+                    <label>Loan Amount</label><br>
+                    <input type="text" name="loanamount"><br>
+                    <label>Loan Amount Term</label><br>
+                    <input type="text" name="loanamountterm"><br>
+                    <label>Credit History</label><br>
+                    <input type="text" name="credithistory"><br>
+                    <label>Property Area</label><br>
+                    <input type="text" name="propertyarea"><br>
+                </div>
+            </div>
+    
+            <input type="submit" value="Predict">
+            
+       
+        </form>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+    <footer class="footer">
+        <p>© 2024 LoanPredict. All rights reserved.</p>
+    </footer>
+</body>
+</html>
